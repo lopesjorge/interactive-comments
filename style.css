@@ -1,0 +1,106 @@
+:root{
+    --White: hsl(0, 0%, 100%)
+}
+
+:root{
+    --Moderate-blue: hsl(238, 40%, 52%)
+}
+
+:root{
+    --Very-light-gray: hsl(228, 33%, 97%)
+}
+
+body{
+    width: 0 auto;
+    height: 0 auto;
+    background: var(--Very-light-gray);
+    font-family: 'Rubik';
+    font-size: 1.1vw;
+}
+
+.card{
+    display: flexbox;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-top: 20px;
+
+    background: var(--White);
+    width: 55vw;
+    height: 20vh;
+    border-radius: 10px;
+}
+
+.imgPersona{
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 13px;
+}
+
+.menu{
+    background:var(--Very-light-gray);
+    width: 2vw;
+    height: 15vh;
+    align-items: center;
+    text-align: center;
+    float: left;
+    margin: 13px;
+    border-radius: 5px;
+    display:flexbox;
+}
+
+.textPersona{
+    margin-top: -30px;
+    margin-left: 110px;
+    display:flexbox;
+}
+
+.textReply{
+    color: var(--Moderate-blue);
+    margin-top: -30px;
+    margin-left: 49vw;
+    display: flexbox;
+}
+
+.paragrafo{
+    text-align: left;
+    margin-top: 30px;
+    display: flexbox;
+}
+
+.cardMessageReply{
+    display: flexbox;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-top: 20px;
+
+    background: var(--White);
+    width: 55vw;
+    height: 20vh;
+    border-radius: 10px;
+}
+
+textarea{
+     width: 40vw;
+     height: 14vh;
+     margin-top: -30px;
+     margin-left: 60px;
+     display: flexbox;
+     border-radius: 10px;
+}
+
+.btnReply{
+    margin-top: -30px;
+    margin-right: 20px;
+    float: right;
+    display: flexbox;
+
+    background-color: var(--Moderate-blue);
+    border-style: none;
+    width: 7vw;
+    height: 7vh;
+     
+    border-radius: 10px;
+    font-weight:bolder;
+    color: var(--White);
+}
