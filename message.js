@@ -127,14 +127,28 @@ cardMessage.innerHTML +=
 } 
 
 
-function loop(){
+function getComments(){
        for (let i = 0; i < json.length; i++){
         const comment = []
+        const reply = []
            comment.push (json[i].comments)
            console.log(comment)
        }
   }
 
-loop()
+
+  
+function getReplies(){
+  const reply = []
+  for (let i = 0; i < json.length; i++){
+      reply.push ( (json[i].comments[i].replies))
+      console.log(reply)
+  }
+
+}
+
+getReplies()
+
+///getComments()
 
 
