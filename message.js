@@ -126,7 +126,15 @@ cardMessage.innerHTML +=
      ///array  
 } 
 
-generateTemplate()
 
+function loop(){
+       for (let i = 0; i < json.length; i++){
+        const comment = []
+           comment.push (json[i].comments)
+           console.log(comment)
+       }
+  }
+
+loop()
 
 
