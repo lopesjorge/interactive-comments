@@ -70,10 +70,19 @@ body{
     padding-left: 22px;
 }
 
-.last-seen{
+.createdAt{
     padding-left: 22px;
     font-weight: normal;
     color: var(--Grayish-Blue);
+}
+
+.icon{
+    width: 15px;
+}
+
+.icon-reply{
+    color: var(--Moderate-blue);
+    padding-left: 330px;
 }
 
 
