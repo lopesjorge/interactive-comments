@@ -1,7 +1,17 @@
 :root{
-    --White: hsl(0, 0%, 100%);
+
+    /*PRIMARY COLORS*/
+    --Moderate-blue: hsl(238, 40%, 52%);
+    --Soft-Red: hsl(358, 79%, 66%);
+    --Light-grayish-blue: hsl(239, 57%, 85%);
+    --Pale-red: hsl(357, 100%, 86%);
+
+    /*COLORS NEUTRAL*/
+    --Dark-blue: hsl(212, 24%, 26%);
+    --Grayish-Blue: hsl(211, 10%, 45%);
+    --Light-gray: hsl(223, 19%, 93%);
     --Very-light-gray: hsl(228, 33%, 97%);
-    --Moderate-blue: hsl(238, 40%, 52%)
+    --White: hsl(0, 0%, 100%);
 }
 
 body{
@@ -50,3 +60,20 @@ body{
     text-align: center;
     color: var(--Moderate-blue);
 }
+
+.image-persona,img{
+    width: 30px;
+    padding-left: 10px;
+}
+
+.text-name-persona{
+    padding-left: 22px;
+}
+
+.last-seen{
+    padding-left: 22px;
+    font-weight: normal;
+    color: var(--Grayish-Blue);
+}
+
+
