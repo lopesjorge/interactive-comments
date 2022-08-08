@@ -69,13 +69,64 @@ const json = [{
 ]
 
 function generateTemplate (){
+const cardMessage = document.querySelector('.card-wrapper')
+     
+cardMessage.innerHTML += 
+`
+<div class="card">
+          <div class="menu-like">
+            <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
+            <p class="textNumber">12</p>
+            <img
+              class="image-dislike"
+              src="./images/icon-minus.svg"
+              alt="subtracao"
+            />
+          </div>
+
+          <div class="wrapper-message">
+            <div class="wrapper-text-persona">
+              <header>
+                <div class="image-persona">
+                  <img
+                    src="${json[0].comments[0].user.image.png}"
+                    alt="${json[0].comments[0].user.username}"
+                  />
+                </div>
+
+                <div class="text-name-persona">
+                  <strong class="name-user">${json[0].comments[0].user.username}</strong>
+
+                  <strong class="createdAt">${json[0].comments[0].createdAt}</strong>
+                </div>
+              </header>
+
+              <div class="icon-reply">
+                <img
+                  class="icon"
+                  src="/images/icon-reply.svg"
+                  alt="icon-reply"
+                />
+                <strong class="text-reply">Reply</strong>
+              </div>
+            </div>
+
+            <div class="text-comment">
+              <p>
+                ${json[0].comments[0].content}
+              </p>
+            </div>
+          </div>
+        </div>
+
+`
+     
      ///Fazer loop array comments
      //Gerar array com os comentarios e subcomentários html
      ///array  
 } 
 
+generateTemplate()
 
-
-///console.log(json[0])
 
 
