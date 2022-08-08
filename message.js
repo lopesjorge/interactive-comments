@@ -1,5 +1,3 @@
-///const {currentUser, comments} = require('./data.json')
-
 const json = [{
     "currentUser": {
       "image": { 
@@ -70,6 +68,14 @@ const json = [{
   }
 ]
 
-console.log(json)
+function generateTemplate (){
+     ///Fazer loop array comments
+     //Gerar array com os comentarios e subcomentários html
+     ///array  
+} 
+
+
+
+///console.log(json[0])
 
 
