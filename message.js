@@ -1,6 +1,6 @@
 ///const {currentUser, comments} = require('./data.json')
 
-const jason = {
+const json = [{
     "currentUser": {
       "image": { 
         "png": "./images/avatars/image-juliusomo.png",
@@ -68,7 +68,8 @@ const jason = {
       }
     ]
   }
-  
+]
 
-const array = JASON.parse(jason)
-console.log(array)
+console.log(json)
+
+
