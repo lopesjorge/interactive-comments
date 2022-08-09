@@ -70,13 +70,18 @@ const json = [{
 
 function generateTemplate (){
 const cardMessage = document.querySelector('.card-wrapper')
-     
+
+const arrayComment = getComments()
+const arrayReplies = getReplies()
+
+for (let i = 0; i < 2; i++){
+    
 cardMessage.innerHTML += 
 `
 <div class="card">
           <div class="menu-like">
             <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-            <p class="textNumber">12</p>
+            <p class="textNumber">${arrayComment[i].score}</p>
             <img
               class="image-dislike"
               src="./images/icon-minus.svg"
@@ -89,15 +94,15 @@ cardMessage.innerHTML +=
               <header>
                 <div class="image-persona">
                   <img
-                    src="${json[0].comments[0].user.image.png}"
-                    alt="${json[0].comments[0].user.username}"
+                    src="${arrayComment[i].user.image.png}"
+                    alt="${arrayComment[i].user.username}"
                   />
                 </div>
 
                 <div class="text-name-persona">
-                  <strong class="name-user">${json[0].comments[0].user.username}</strong>
+                  <strong class="name-user">${arrayComment[i].user.username}</strong>
 
-                  <strong class="createdAt">${json[0].comments[0].createdAt}</strong>
+                  <strong class="createdAt">${arrayComment[i].createdAt}</strong>
                 </div>
               </header>
 
@@ -113,14 +118,14 @@ cardMessage.innerHTML +=
 
             <div class="text-comment">
               <p>
-                ${json[0].comments[0].content}
+                ${arrayComment[i].content}
               </p>
             </div>
           </div>
         </div>
 
 `
-     
+}
      ///Fazer loop array comments
      //Gerar array com os comentarios e subcomentários html
      ///array  
@@ -128,12 +133,12 @@ cardMessage.innerHTML +=
 
 
 function getComments(){
+  const comment = []
        for (let i = 0; i < json.length; i++){
-        const comment = []
-        const reply = []
            comment.push (json[i].comments)
            console.log(comment)
        }
+      return comment
   }
 
 
@@ -141,14 +146,87 @@ function getComments(){
 function getReplies(){
   const reply = []
   for (let i = 0; i < json.length; i++){
-      reply.push ( (json[i].comments[i].replies))
-      console.log(reply)
+        for (let j = 0; j < 2; j++){
+      reply.push ( (json[i].comments[j].replies))
+    }
+    console.log(reply)
   }
-
+  return reply
 }
 
-getReplies()
+function ExeReplies(){
+  const reply = []
+  for (let i = 0; i < json.length; i++){
+        for (let j = 0; j < 2; j++){
+            for(let y = 0; y < 2; y ++){
+      reply.push ( (json[i].comments[j].replies[y]))
+      console.log(`${reply[y]}`)
 
-///getComments()
+        }
+    }
+  }
+  return reply
+}
 
+generateTemplate()
 
+/*
+function generateTemplate (){
+  const cardMessage = document.querySelector('.card-wrapper')
+       
+  cardMessage.innerHTML += 
+  `
+  <div class="card">
+            <div class="menu-like">
+              <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
+              <p class="textNumber">12</p>
+              <img
+                class="image-dislike"
+                src="./images/icon-minus.svg"
+                alt="subtracao"
+              />
+            </div>
+  
+            <div class="wrapper-message">
+              <div class="wrapper-text-persona">
+                <header>
+                  <div class="image-persona">
+                    <img
+                      src="${json[0].comments[0].user.image.png}"
+                      alt="${json[0].comments[0].user.username}"
+                    />
+                  </div>
+  
+                  <div class="text-name-persona">
+                    <strong class="name-user">${json[0].comments[0].user.username}</strong>
+  
+                    <strong class="createdAt">${json[0].comments[0].createdAt}</strong>
+                  </div>
+                </header>
+  
+                <div class="icon-reply">
+                  <img
+                    class="icon"
+                    src="/images/icon-reply.svg"
+                    alt="icon-reply"
+                  />
+                  <strong class="text-reply">Reply</strong>
+                </div>
+              </div>
+  
+              <div class="text-comment">
+                <p>
+                  ${json[0].comments[0].content}
+                </p>
+              </div>
+            </div>
+          </div>
+  
+  `
+       
+       ///Fazer loop array comments
+       //Gerar array com os comentarios e subcomentários html
+       ///array  
+  } 
+  
+*/  
