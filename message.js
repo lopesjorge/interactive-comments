@@ -68,20 +68,16 @@ const json = [{
   }
 ]
 
-function generateTemplate (){
+function generateTemplate (arrayComment){
 const cardMessage = document.querySelector('.card-wrapper')
-
-const arrayComment = getComments()
-const arrayReplies = getReplies()
-
-for (let i = 0; i < 2; i++){
     
+for (let i = 0; i < arrayComment.length; i++){
 cardMessage.innerHTML += 
 `
 <div class="card">
           <div class="menu-like">
             <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-            <p class="textNumber">${arrayComment[i].score}</p>
+            <p class="textNumber">${arrayComment[i].comments[0].id}</p>
             <img
               class="image-dislike"
               src="./images/icon-minus.svg"
@@ -138,7 +134,6 @@ function getComments(){
            comment.push (json[i].comments)
            console.log(comment)
        }
-      return comment
   }
 
 
@@ -146,29 +141,39 @@ function getComments(){
 function getReplies(){
   const reply = []
   for (let i = 0; i < json.length; i++){
-        for (let j = 0; j < 2; j++){
-      reply.push ( (json[i].comments[j].replies))
-    }
-    console.log(reply)
+        for (let j = 0; j < json.length+1; j++){
+          var aux = json[i].comments[j].replies
+          reply.push(aux)
+     }
   }
+  console.log(reply)
   return reply
 }
 
-function ExeReplies(){
-  const reply = []
-  for (let i = 0; i < json.length; i++){
-        for (let j = 0; j < 2; j++){
-            for(let y = 0; y < 2; y ++){
-      reply.push ( (json[i].comments[j].replies[y]))
-      console.log(`${reply[y]}`)
+const arrObj = getReplies()
 
-        }
+var arr = arrObj.map(function(obj) {
+  return Object.keys(obj).map(function(key) {
+      return obj[key];
+  });
+});
+
+const array = []
+
+function loop(){
+    for(let i= 0; i < arr.length; i++){
+         for(let j = 0; j< arr[i].length; j++){
+            array.push((arr[i][j]))
+         }
     }
-  }
-  return reply
 }
 
-generateTemplate()
+loop()
+
+//console.log(array)
+//console.log(arr);
+
+///console.log(json[0].comments[1].replies[1].content)
 
 /*
 function generateTemplate (){
