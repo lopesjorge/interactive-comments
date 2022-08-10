@@ -144,15 +144,20 @@ function getReplies(){
         for (let j = 0; j < json.length+1; j++){
           var aux = json[i].comments[j].replies
           reply.push(aux)
+            for(let k =0; k< reply.length;k++){
+              console.log(reply[j][k])
+        }
      }
   }
-  console.log(reply)
+  ///console.log(reply)
   return reply
 }
 
+
+
 const arrObj = getReplies()
 
-var arr = arrObj.map(function(obj) {
+let arr = arrObj.map(function(obj) {
   return Object.keys(obj).map(function(key) {
       return obj[key];
   });
@@ -160,15 +165,29 @@ var arr = arrObj.map(function(obj) {
 
 const array = []
 
-function loop(){
+function getArray(){
     for(let i= 0; i < arr.length; i++){
          for(let j = 0; j< arr[i].length; j++){
             array.push((arr[i][j]))
          }
     }
+    
+    const aux =  array.map(function(obj) {
+      return Object.keys(obj).map(function(key) {
+          return obj[key];
+      });
+    });
+     
+    for(let i= 0; i < arr.length; i++){
+      for(let j = 0; j< arr[i].length; j++){
+        console.log(aux[i][j])
+      }
+ }
 }
 
-loop()
+getArray()
+
+
 
 //console.log(array)
 //console.log(arr);
