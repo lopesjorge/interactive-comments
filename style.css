@@ -154,10 +154,13 @@ header{
     font-weight: normal;
 }
 
+.createdAt-user{
+    padding-left: 16px;
+    font-weight: normal;
+    color: var(--Grayish-Blue);
+}
+
 .name-user{
 padding-right: 10px;
 }
 
-.createdAt-user{
-    padding-left: 10px;
-}
