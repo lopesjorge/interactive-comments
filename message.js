@@ -187,7 +187,8 @@ function generateTemplateReply(){
     } 
   } 
   
-  generateTemplateReply()
+
+  
 
 /* CÓDIGO ABSOLETO
 
