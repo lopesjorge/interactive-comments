@@ -120,3 +120,44 @@ header{
     color: var(--Moderate-blue);
     padding-left: 220px;
 }
+
+.text-name-user-reply{
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.icon-delete{
+    color: var(--Pale-red);
+    padding-left: 100px;
+}
+
+.icon-delete-img{
+    width: 11px;
+}
+
+.icon-edit{
+    color: var(--Moderate-blue);
+}
+
+.icon-edit-img{
+    width: 11px;
+    padding-left: 24px;
+}
+
+.sent-by-me{
+    background: var(--Moderate-blue);
+    padding: 2px 4px;
+    border-radius: 2px;
+    text-align: center;
+    color: var(--White);
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.name-user{
+padding-right: 10px;
+}
+
+.createdAt-user{
+    padding-left: 10px;
+}

@@ -181,14 +181,13 @@ function generateTemplateReply(){
               </div>
             </div>
           </div>
-  
   `
        }
     } 
   } 
   
 
-  
+
 
 /* CÓDIGO ABSOLETO
 
