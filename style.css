@@ -99,6 +99,24 @@ header{
     display:flex;
 }
 
+.card-replies-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 24px;
+} 
 
+.card-replies{
+    display: flex;
+    padding: 24px;
+    background: var(--White);
+    width: 85%;
+    border-radius: 10px;
+    position: relative;
+    left: 107px;
+}
 
-
+.icon-reply-presona{
+    color: var(--Moderate-blue);
+    padding-left: 220px;
+}
