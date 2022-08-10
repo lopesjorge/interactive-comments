@@ -188,6 +188,76 @@ function generateTemplateReply(){
   
 
 
+function generateTemplateReplyUserAuth(){
+  const cardMessageReply = document.querySelector('.card-replies-wrapper')
+      
+  for(let i = 0; i < json.length; i++){
+      for(let j=0; j < json.length+1;j++){
+
+  cardMessageReply.innerHTML += 
+  `
+  <div class="card-replies">
+            <div class="menu-like">
+              <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
+              <p class="textNumber">${json[i].comments[j].score}</p>
+              <img
+                class="image-dislike"
+                src="./images/icon-minus.svg"
+                alt="subtracao"
+              />
+            </div>
+  
+            <div class="wrapper-message">
+              <div class="wrapper-text-persona">
+                <header>
+                  <div class="image-persona">
+                    <img
+                      src="${json[i].comments[j].user.image.png}"
+                      alt="${json[i].comments[j].user.image.username}"
+                    />
+                  </div>
+  
+                  <div class="text-name-persona">
+                    <strong class="name-user">${json[i].comments[j].user.username}</strong>
+                    <strong class="sent-by-me">you</strong>
+                    <strong class="createdAt">${json[i].comments[j].createdAt}</strong>
+                  </div>
+                </header>
+  
+                <div class="icon-delete">
+                <img
+                  class="icon-delete-img"
+                  src="/images/icon-delete.svg"
+                  alt="icon-delete"
+                />
+                <strong class="text-delete">Delete</strong>
+              </div>
+
+              <div class="icon-edit">
+                <img
+                  class="icon-edit-img"
+                  src="/images/icon-edit.svg"
+                  alt="icon-edit"
+                />
+                <strong class="text-edit">Edit</strong>
+              </div>
+           
+              </div>
+  
+              <div class="text-comment">
+                <p>
+                  ${json[i].comments[j].content}
+                </p>
+              </div>
+            </div>
+          </div>
+  `
+       }
+    } 
+  } 
+  
+
+  generateTemplateReplyUserAuth()
 
 /* CÓDIGO ABSOLETO
 
