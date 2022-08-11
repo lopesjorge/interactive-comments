@@ -68,62 +68,63 @@ const json = [{
   }
 ]
 
-function generateTemplateComment(){
-const cardMessage = document.querySelector('.card-wrapper')
-    
-for(let i = 0; i < json.length; i++){
-    for(let j=0; j < json.length+1;j++){
-cardMessage.innerHTML += 
-`
-<div class="card">
-          <div class="menu-like">
-            <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-            <p class="textNumber">${json[i].comments[j].score}</p>
-            <img
-              class="image-dislike"
-              src="./images/icon-minus.svg"
-              alt="subtracao"
-            />
-          </div>
+function generateTemplateComment(comments){
+  const cardMessage = document.querySelector('.card-wrapper')
+  
+  comments.forEach ((element)=>{
 
-          <div class="wrapper-message">
-            <div class="wrapper-text-persona">
-              <header>
-                <div class="image-persona">
+  cardMessage.innerHTML += 
+  `
+  <div class="card">
+            <div class="menu-like">
+              <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
+              <p class="textNumber">${element.score}</p>
+              <img
+                class="image-dislike"
+                src="./images/icon-minus.svg"
+                alt="subtracao"
+              />
+            </div>
+  
+            <div class="wrapper-message">
+              <div class="wrapper-text-persona">
+                <header>
+                  <div class="image-persona">
+                    <img
+                      src="${element.user.image.png}"
+                      alt="${element.user.image.username}"
+                    />
+                  </div>
+  
+                  <div class="text-name-persona">
+                    <strong class="name-user">${element.user.username}</strong>
+  
+                    <strong class="createdAt">${element.createdAt}</strong>
+                  </div>
+                </header>
+  
+                <div class="icon-reply">
                   <img
-                    src="${json[i].comments[j].user.image.png}"
-                    alt="${json[i].comments[j].user.image.username}"
+                    class="icon"
+                    src="/images/icon-reply.svg"
+                    alt="icon-reply"
                   />
+                  <strong class="text-reply">Reply</strong>
                 </div>
-
-                <div class="text-name-persona">
-                  <strong class="name-user">${json[i].comments[j].user.username}</strong>
-
-                  <strong class="createdAt">${json[i].comments[j].createdAt}</strong>
-                </div>
-              </header>
-
-              <div class="icon-reply">
-                <img
-                  class="icon"
-                  src="/images/icon-reply.svg"
-                  alt="icon-reply"
-                />
-                <strong class="text-reply">Reply</strong>
+              </div>
+  
+              <div class="text-comment">
+                <p>
+                  ${element.content}
+                </p>
               </div>
             </div>
-
-            <div class="text-comment">
-              <p>
-                ${json[i].comments[j].content}
-              </p>
-            </div>
           </div>
-        </div>
+  
+  `
+    
+})
 
-`
-     }
-  } 
 } 
 
 function generateTemplateReply(){
@@ -251,71 +252,9 @@ function generateTemplateReplyUserAuth(){
     } 
 } 
 
-///console.log(json[0].comments[1].replies[1].content)
+const comments = json[0].comments
 
-generateTemplateComment()
-generateTemplateReply()
-generateTemplateReplyUserAuth()
+const commentsNoReply = comments.filter( (item) => item.replies.length === 0)
+const commentsReply = comments.filter( (item) => item.replies.length > 0)
 
-/*
-function getReplies(){
-    const reply = []
-    for (let i = 0; i < json.length; i++){
-          for (let j = 0; j < json.length+1; j++){
-            var aux = json[i].comments[j].replies
-            reply.push(aux)
-              for(let k =0; k< reply.length;k++){
-                console.log(reply)
-          }
-       }
-    }
-    ///console.log(reply)
-    return reply
-  }
-  
-
-function getComments(){
-  const comment = []
-       for (let i = 0; i < json.length; i++){
-           comment.push (json[i].comments)
-           console.log(comment)
-       }
-  }
-
-const arrObj = getReplies()
-
-let arr = arrObj.map(function(obj) {
-  return Object.keys(obj).map(function(key) {
-      return obj[key];
-  });
-});
-
-const array = []
-
-function getArray(){
-    for(let i= 0; i < arr.length; i++){
-         for(let j = 0; j< arr[i].length; j++){
-            array.push((arr[i][j]))
-         }
-    }
-    
-    const aux =  array.map(function(obj) {
-      return Object.keys(obj).map(function(key) {
-          return obj[key];
-      });
-    });
-     
-    for(let i= 0; i < arr.length; i++){
-      for(let j = 0; j < 6; j++){
-
-         /// console.log(aux[i][j])
-    
-      }
-   }
-   
-return aux;
-
-}
-
-const arrayReplies = getArray()
-*/
+generateTemplateComment(comments)
