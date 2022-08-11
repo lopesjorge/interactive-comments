@@ -116,7 +116,12 @@ header{
     left: 107px;
 }
 
-.icon-reply-presona{
+.icon-reply-persona{
+    color: var(--Moderate-blue);
+    padding-left: 220px;
+}
+
+.icon-reply-comment{
     color: var(--Moderate-blue);
     padding-left: 220px;
 }

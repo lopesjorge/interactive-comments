@@ -126,14 +126,12 @@ cardMessage.innerHTML +=
   } 
 } 
 
-
-
 function generateTemplateReply(){
   const cardMessageReply = document.querySelector('.card-replies-wrapper')
-      
+   
   for(let i = 0; i < json.length; i++){
-      for(let j=0; j < json.length+1;j++){
-
+      for(let j= 0; j < json.length+1; j++){
+         
   cardMessageReply.innerHTML += 
   `
   <div class="card-replies">
@@ -159,12 +157,11 @@ function generateTemplateReply(){
   
                   <div class="text-name-persona">
                     <strong class="name-user">${json[i].comments[j].user.username}</strong>
-  
                     <strong class="createdAt">${json[i].comments[j].createdAt}</strong>
                   </div>
                 </header>
   
-                <div class="icon-reply">
+                <div class="icon-reply-comment">
                   <img
                     class="icon"
                     src="/images/icon-reply.svg"
@@ -182,11 +179,9 @@ function generateTemplateReply(){
             </div>
           </div>
   `
-       }
-    } 
-  } 
-  
-
+    }
+  }
+}
 
 function generateTemplateReplyUserAuth(){
   const cardMessageReply = document.querySelector('.card-replies-wrapper')
@@ -254,12 +249,30 @@ function generateTemplateReplyUserAuth(){
   `
        }
     } 
-  } 
+} 
+
+///console.log(json[0].comments[1].replies[1].content)
+
+generateTemplateComment()
+generateTemplateReply()
+generateTemplateReplyUserAuth()
+
+/*
+function getReplies(){
+    const reply = []
+    for (let i = 0; i < json.length; i++){
+          for (let j = 0; j < json.length+1; j++){
+            var aux = json[i].comments[j].replies
+            reply.push(aux)
+              for(let k =0; k< reply.length;k++){
+                console.log(reply)
+          }
+       }
+    }
+    ///console.log(reply)
+    return reply
+  }
   
-
-  generateTemplateReplyUserAuth()
-
-/* CÓDIGO ABSOLETO
 
 function getComments(){
   const comment = []
@@ -268,25 +281,6 @@ function getComments(){
            console.log(comment)
        }
   }
-
-
-  
-function getReplies(){
-  const reply = []
-  for (let i = 0; i < json.length; i++){
-        for (let j = 0; j < json.length+1; j++){
-          var aux = json[i].comments[j].replies
-          reply.push(aux)
-            for(let k =0; k< reply.length;k++){
-              //console.log(reply[j][k])
-        }
-     }
-  }
-  ///console.log(reply)
-  return reply
-}
-
-
 
 const arrObj = getReplies()
 
@@ -323,6 +317,5 @@ return aux;
 
 }
 
-
+const arrayReplies = getArray()
 */
-
