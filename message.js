@@ -123,21 +123,25 @@ function generateTemplateComment(comments){
   
   `
     
-})
-
+   })
 } 
 
-function generateTemplateReply(comments){
+function generateTemplateReply(commentsReply){
   const cardMessageReply = document.querySelector('.card-replies-wrapper')
-   
-  comments.forEach ((element)=>{
+
+  
+  commentsReply.forEach((reply)=>{
+    const resultReply = reply.replies
+      console.log(resultReply)
+         resultReply.forEach((elementReply) =>{
+          console.log(elementReply.content)
         
   cardMessageReply.innerHTML += 
   `
   <div class="card-replies">
             <div class="menu-like">
               <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-              <p class="textNumber">${comments.score}</p>
+              <p class="textNumber">${elementReply.score}</p>
               <img
                 class="image-dislike"
                 src="./images/icon-minus.svg"
@@ -150,14 +154,14 @@ function generateTemplateReply(comments){
                 <header>
                   <div class="image-persona">
                     <img
-                      src="${comments.user.image.png}"
-                      alt="${comments.user.image.username}"
+                      src="${elementReply.user.image.png}"
+                      alt="${elementReply.user.image.username}"
                     />
                   </div>
   
                   <div class="text-name-persona">
-                    <strong class="name-user">${comments.user.username}</strong>
-                    <strong class="createdAt">${comments.createdAt}</strong>
+                    <strong class="name-user">${elementReply.user.username}</strong>
+                    <strong class="createdAt">${elementReply.createdAt}</strong>
                   </div>
                 </header>
   
@@ -173,12 +177,16 @@ function generateTemplateReply(comments){
   
               <div class="text-comment">
                 <p>
-                  ${comments.content}
+                <strong> 
+                @${elementReply.user.username}
+                </strong> 
+                  ${elementReply.content}
                 </p>
               </div>
             </div>
           </div>
   `
+   })
   })
 }
 
@@ -257,22 +265,38 @@ const commentsReply = comments.filter( (item) => item.replies.length > 0)
 
 const nome = json[0].currentUser.username
 
+console.log(commentsNoReply)
 
 const checkComment = () => {  
-  commentsNoReply.forEach((replyNull)=>{
-  const result = replyNull.replies
-  if (result.length === 0){
-    console.log('Comentario sem respostas')
-    return false
-    }
+  comments.forEach((replyNull)=>{
+  const resultReply = (replyNull.replies)
+  if (resultReply.length === 0){
+  console.log('comentario vazio')
+  generateTemplateComment(comments)
+  }
+  else if (resultReply.length > 0){
+       console.log('Comentario com respostas')
+       generateTemplateReply(comments)
+     }
   })
 }
 
-if (checkComment() === false){
-    console.log('Comentarios vazios')
+checkComment()
+
+/*
+const checkComment = () => {  
+  commentsNoReply.forEach((replyNull)=>{
+  const result = (replyNull.replies)
+  if (result.length === 0)
+     console.log("Não existe resposta!")
+  else if (result.length > 0)
+  console.log('Comentario com respostas')
+  })
 }
-else
-console.log('Comentarios vazios')
+*/
+///checkComment()
+
+//generateTemplateReply(commentsReply)
 
 
 
