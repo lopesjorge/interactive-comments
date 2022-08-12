@@ -257,4 +257,20 @@ const comments = json[0].comments
 const commentsNoReply = comments.filter( (item) => item.replies.length === 0)
 const commentsReply = comments.filter( (item) => item.replies.length > 0)
 
-generateTemplateComment(comments)
+const nome = json[0].currentUser.username
+
+
+
+commentsReply.forEach((element) =>{
+      const result = element.replies
+      ///console.log(result)
+          
+         result.forEach((reply)=>{
+              if(reply.user.username === nome)
+              console.log(reply.user.username)
+           
+   })
+})
+
+
+///generateTemplateComment(comments)
