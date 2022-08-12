@@ -265,8 +265,6 @@ const commentsReply = comments.filter( (item) => item.replies.length > 0)
 
 const nome = json[0].currentUser.username
 
-console.log(commentsNoReply)
-
 const checkComment = () => {  
   comments.forEach((replyNull)=>{
   const resultReply = (replyNull.replies)
@@ -283,25 +281,6 @@ const checkComment = () => {
 
 checkComment()
 
-/*
-const checkComment = () => {  
-  commentsNoReply.forEach((replyNull)=>{
-  const result = (replyNull.replies)
-  if (result.length === 0)
-     console.log("Não existe resposta!")
-  else if (result.length > 0)
-  console.log('Comentario com respostas')
-  })
-}
-*/
-///checkComment()
-
-//generateTemplateReply(commentsReply)
-
-
-
-
-///console.log(commentsNoReply.replies)
 
 /*
 commentsReply.forEach((element) =>{
@@ -319,5 +298,3 @@ commentsReply.forEach((element) =>{
    })
 })
 */
-
-///generateTemplateComment(comments)
