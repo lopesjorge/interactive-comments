@@ -127,18 +127,17 @@ function generateTemplateComment(comments){
 
 } 
 
-function generateTemplateReply(){
+function generateTemplateReply(comments){
   const cardMessageReply = document.querySelector('.card-replies-wrapper')
    
-  for(let i = 0; i < json.length; i++){
-      for(let j= 0; j < json.length+1; j++){
-         
+  comments.forEach ((element)=>{
+        
   cardMessageReply.innerHTML += 
   `
   <div class="card-replies">
             <div class="menu-like">
               <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-              <p class="textNumber">${json[i].comments[j].score}</p>
+              <p class="textNumber">${comments.score}</p>
               <img
                 class="image-dislike"
                 src="./images/icon-minus.svg"
@@ -151,14 +150,14 @@ function generateTemplateReply(){
                 <header>
                   <div class="image-persona">
                     <img
-                      src="${json[i].comments[j].user.image.png}"
-                      alt="${json[i].comments[j].user.image.username}"
+                      src="${comments.user.image.png}"
+                      alt="${comments.user.image.username}"
                     />
                   </div>
   
                   <div class="text-name-persona">
-                    <strong class="name-user">${json[i].comments[j].user.username}</strong>
-                    <strong class="createdAt">${json[i].comments[j].createdAt}</strong>
+                    <strong class="name-user">${comments.user.username}</strong>
+                    <strong class="createdAt">${comments.createdAt}</strong>
                   </div>
                 </header>
   
@@ -174,14 +173,13 @@ function generateTemplateReply(){
   
               <div class="text-comment">
                 <p>
-                  ${json[i].comments[j].content}
+                  ${comments.content}
                 </p>
               </div>
             </div>
           </div>
   `
-    }
-  }
+  })
 }
 
 function generateTemplateReplyUserAuth(){
@@ -260,17 +258,42 @@ const commentsReply = comments.filter( (item) => item.replies.length > 0)
 const nome = json[0].currentUser.username
 
 
+const checkComment = () => {  
+  commentsNoReply.forEach((replyNull)=>{
+  const result = replyNull.replies
+  if (result.length === 0){
+    console.log('Comentario sem respostas')
+    return false
+    }
+  })
+}
 
+if (checkComment() === false){
+    console.log('Comentarios vazios')
+}
+else
+console.log('Comentarios vazios')
+
+
+
+
+///console.log(commentsNoReply.replies)
+
+/*
 commentsReply.forEach((element) =>{
       const result = element.replies
-      ///console.log(result)
+       console.log(result)
           
          result.forEach((reply)=>{
               if(reply.user.username === nome)
               console.log(reply.user.username)
+
+              else{
+                 
+              }
            
    })
 })
-
+*/
 
 ///generateTemplateComment(comments)
