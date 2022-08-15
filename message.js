@@ -177,8 +177,8 @@ function generateTemplateReply(commentsReply){
   
               <div class="text-comment">
                 <p>
-                <strong> 
-                @${elementReply.user.username}
+                <strong class="repleingTo"> 
+                @${elementReply.replyingTo}
                 </strong> 
                   ${elementReply.content}
                 </p>
