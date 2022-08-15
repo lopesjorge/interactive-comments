@@ -130,6 +130,9 @@ function generateTemplateComment(comments) {
 
 function generateTemplateReply(commentsReply) {
   const cardMessageReply = document.querySelector(".card-replies-wrapper");
+  
+  console.log(commentsReply)
+  return 
 
   commentsReply.forEach((reply) => {
     const resultReply = reply.replies;
@@ -192,14 +195,12 @@ function generateTemplateReply(commentsReply) {
 
 function generateTemplateReplyUserAuth(commentsReply) {
   const cardMessageReply = document.querySelector(".card-replies-wrapper");
+ 
+  console.log(commentsReply)
 
-  commentsReply.forEach((reply) => {
-    const resultReply = reply.replies;
-    console.log(resultReply);
-  
     commentsReply.forEach((elementReply) => {
-      console.log(elementReply.content);
-
+     console.log(elementReply.user);
+   return
       cardMessageReply.innerHTML += `
   <div class="card-replies">
             <div class="menu-like">
@@ -260,7 +261,6 @@ function generateTemplateReplyUserAuth(commentsReply) {
           </div>
   `;
     });
-  });
 }
 
 const comments = json[0].comments;
@@ -287,30 +287,21 @@ const checkComment = () => {
 */
 
 
-
-
 checkCurrentUser = () => {
   const currentUser = json[0].currentUser.username
-  const currentUserComments = comments.filter((item) => {
-        item.replies.map(i =>{
-            console.log(i.user.username == currentUser)
-        })
-  });
-
-  //console.log(currentUserComments)
   
-  //console.log(currentUserComments,currentUser,commentsReply)
+  const currentUserCommentsFilter = commentsReply.map(i => {
+    return i.replies.filter(item => item.user.username == currentUser)
+  })
+  
+  const notCurrentUserCommentsFilter = commentsReply.map(i => {
+    return i.replies.filter(item => item.user.username != currentUser)
+  })
 
-  comments.forEach((replyNull) => {
-    const resultReply = replyNull.replies;
-    if (resultReply.length === 0) {
-      generateTemplateComment(comments);
-    } else if (resultReply.length > 0) {
-      
-      console.log(resultReply)
-      
-    }
-  });
+  //generateTemplateReply(notCurrentUserCommentsFilter)
+
+  generateTemplateReplyUserAuth(currentUserCommentsFilter)
+
 };
 
 
