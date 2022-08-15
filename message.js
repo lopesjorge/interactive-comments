@@ -1,80 +1,83 @@
-const json = [{
-    "currentUser": {
-      "image": { 
-        "png": "./images/avatars/image-juliusomo.png",
-        "webp": "./images/avatars/image-juliusomo.webp"
+const json = [
+  {
+    currentUser: {
+      image: {
+        png: "./images/avatars/image-juliusomo.png",
+        webp: "./images/avatars/image-juliusomo.webp",
       },
-      "username": "juliusomo"
+      username: "juliusomo",
     },
-    "comments": [
+    comments: [
       {
-        "id": 1,
-        "content": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-        "createdAt": "1 month ago",
-        "score": 12,
-        "user": {
-          "image": { 
-            "png": "./images/avatars/image-amyrobson.png",
-            "webp": "./images/avatars/image-amyrobson.webp"
+        id: 1,
+        content:
+          "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+        createdAt: "1 month ago",
+        score: 12,
+        user: {
+          image: {
+            png: "./images/avatars/image-amyrobson.png",
+            webp: "./images/avatars/image-amyrobson.webp",
           },
-          "username": "amyrobson"
+          username: "amyrobson",
         },
-        "replies": []
+        replies: [],
       },
       {
-        "id": 2,
-        "content": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-        "createdAt": "2 weeks ago",
-        "score": 5,
-        "user": {
-          "image": { 
-            "png": "./images/avatars/image-maxblagun.png",
-            "webp": "./images/avatars/image-maxblagun.webp"
+        id: 2,
+        content:
+          "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+        createdAt: "2 weeks ago",
+        score: 5,
+        user: {
+          image: {
+            png: "./images/avatars/image-maxblagun.png",
+            webp: "./images/avatars/image-maxblagun.webp",
           },
-          "username": "maxblagun"
+          username: "maxblagun",
         },
-        "replies": [
+        replies: [
           {
-            "id": 3,
-            "content": "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
-            "createdAt": "1 week ago",
-            "score": 4,
-            "replyingTo": "maxblagun",
-            "user": {
-              "image": { 
-                "png": "./images/avatars/image-ramsesmiron.png",
-                "webp": "./images/avatars/image-ramsesmiron.webp"
+            id: 3,
+            content:
+              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+            createdAt: "1 week ago",
+            score: 4,
+            replyingTo: "maxblagun",
+            user: {
+              image: {
+                png: "./images/avatars/image-ramsesmiron.png",
+                webp: "./images/avatars/image-ramsesmiron.webp",
               },
-              "username": "ramsesmiron"
-            }
+              username: "ramsesmiron",
+            },
           },
           {
-            "id": 4,
-            "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
-            "createdAt": "2 days ago",
-            "score": 2,
-            "replyingTo": "ramsesmiron",
-            "user": {
-              "image": { 
-                "png": "./images/avatars/image-juliusomo.png",
-                "webp": "./images/avatars/image-juliusomo.webp"
+            id: 4,
+            content:
+              "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+            createdAt: "2 days ago",
+            score: 2,
+            replyingTo: "ramsesmiron",
+            user: {
+              image: {
+                png: "./images/avatars/image-juliusomo.png",
+                webp: "./images/avatars/image-juliusomo.webp",
               },
-              "username": "juliusomo"
-            }
-          }
-        ]
-      }
-    ]
-  }
-]
+              username: "juliusomo",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
 
-function generateTemplateComment(comments){
-  const cardMessage = document.querySelector('.card-wrapper')
-  
-  comments.forEach ((element)=>{
+function generateTemplateComment(comments) {
+  const cardMessage = document.querySelector(".card-wrapper");
 
-  cardMessage.innerHTML += 
-  `
+  comments.forEach((element) => {
+    cardMessage.innerHTML += `
   <div class="card">
             <div class="menu-like">
               <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
@@ -121,23 +124,20 @@ function generateTemplateComment(comments){
             </div>
           </div>
   
-  `
-    
-   })
-} 
+  `;
+  });
+}
 
-function generateTemplateReply(commentsReply){
-  const cardMessageReply = document.querySelector('.card-replies-wrapper')
+function generateTemplateReply(commentsReply) {
+  const cardMessageReply = document.querySelector(".card-replies-wrapper");
 
-  
-  commentsReply.forEach((reply)=>{
-    const resultReply = reply.replies
-      console.log(resultReply)
-         resultReply.forEach((elementReply) =>{
-          console.log(elementReply.content)
-        
-  cardMessageReply.innerHTML += 
-  `
+  commentsReply.forEach((reply) => {
+    const resultReply = reply.replies;
+    console.log(resultReply);
+    resultReply.forEach((elementReply) => {
+      console.log(elementReply.content);
+
+      cardMessageReply.innerHTML += `
   <div class="card-replies">
             <div class="menu-like">
               <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
@@ -185,23 +185,26 @@ function generateTemplateReply(commentsReply){
               </div>
             </div>
           </div>
-  `
-   })
-  })
+  `;
+    });
+  });
 }
 
-function generateTemplateReplyUserAuth(){
-  const cardMessageReply = document.querySelector('.card-replies-wrapper')
-      
-  for(let i = 0; i < json.length; i++){
-      for(let j=0; j < json.length+1;j++){
+function generateTemplateReplyUserAuth(commentsReply) {
+  const cardMessageReply = document.querySelector(".card-replies-wrapper");
 
-  cardMessageReply.innerHTML += 
-  `
+  commentsReply.forEach((reply) => {
+    const resultReply = reply.replies;
+    console.log(resultReply);
+  
+    commentsReply.forEach((elementReply) => {
+      console.log(elementReply.content);
+
+      cardMessageReply.innerHTML += `
   <div class="card-replies">
             <div class="menu-like">
               <img class="image-like" src="./images/icon-plus.svg" alt="adicao" />
-              <p class="textNumber">${json[i].comments[j].score}</p>
+              <p class="textNumber">${elementReply.score}</p>
               <img
                 class="image-dislike"
                 src="./images/icon-minus.svg"
@@ -214,15 +217,15 @@ function generateTemplateReplyUserAuth(){
                 <header>
                   <div class="image-persona">
                     <img
-                      src="${json[i].comments[j].user.image.png}"
-                      alt="${json[i].comments[j].user.image.username}"
+                      src="${elementReply.user.image.png}"
+                      alt="${elementReply.user.image.username}"
                     />
                   </div>
   
                   <div class="text-name-persona">
-                    <strong class="name-user">${json[i].comments[j].user.username}</strong>
+                    <strong class="name-user">${elementReply.user.username}</strong>
                     <strong class="sent-by-me">you</strong>
-                    <strong class="createdAt">${json[i].comments[j].createdAt}</strong>
+                    <strong class="createdAt">${elementReply.createdAt}</strong>
                   </div>
                 </header>
   
@@ -248,22 +251,24 @@ function generateTemplateReplyUserAuth(){
   
               <div class="text-comment">
                 <p>
-                  ${json[i].comments[j].content}
+                  <strong class="repliengTo">
+                  @${elementReply.replyingTo}
+                  ${elementReply.content}
                 </p>
               </div>
             </div>
           </div>
-  `
-       }
-    } 
-} 
+  `;
+    });
+  });
+}
 
-const comments = json[0].comments
+const comments = json[0].comments;
 
-const commentsNoReply = comments.filter( (item) => item.replies.length === 0)
-const commentsReply = comments.filter( (item) => item.replies.length > 0)
+const commentsNoReply = comments.filter((item) => item.replies.length === 0);
+const commentsReply = comments.filter((item) => item.replies.length > 0);
 
-const nome = json[0].currentUser.username
+/*
 
 const checkComment = () => {  
   comments.forEach((replyNull)=>{
@@ -279,22 +284,34 @@ const checkComment = () => {
   })
 }
 
-checkComment()
-
-
-/*
-commentsReply.forEach((element) =>{
-      const result = element.replies
-       console.log(result)
-          
-         result.forEach((reply)=>{
-              if(reply.user.username === nome)
-              console.log(reply.user.username)
-
-              else{
-                 
-             }
-           
-   })
-})
 */
+
+
+
+
+checkCurrentUser = () => {
+  const currentUser = json[0].currentUser.username
+  const currentUserComments = comments.filter((item) => {
+        item.replies.map(i =>{
+            console.log(i.user.username == currentUser)
+        })
+  });
+
+  //console.log(currentUserComments)
+  
+  //console.log(currentUserComments,currentUser,commentsReply)
+
+  comments.forEach((replyNull) => {
+    const resultReply = replyNull.replies;
+    if (resultReply.length === 0) {
+      generateTemplateComment(comments);
+    } else if (resultReply.length > 0) {
+      
+      console.log(resultReply)
+      
+    }
+  });
+};
+
+
+checkCurrentUser();
